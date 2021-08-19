@@ -2,8 +2,7 @@
 
 ## Description
 
-**react-native-wind** is a style library strongly inspired by [TailwindCSS](https://tailwindcss.com/) for web.
-It is a **utility-first** style library for React Native that offers a low-level API that allows you to create graphical components quickly, using this approach you avoid writing the same style rules over and over again. These rules can be composed to create any style you want.
+**react-native-wind** is a **utility-first** style library for React Native strongly inspired by [TailwindCSS](https://tailwindcss.com/) that offers a low-level API that allows you to create graphical components quickly, using this approach you avoid writing the same style rules over and over again. These rules can be composed to create any style you want.
 
 ## Installation
 
