@@ -1,6 +1,6 @@
 export type DefualtSpaces = typeof spaces;
-export type Spaces = Record<string | number, number>;
-export type MergedSpaces = DefualtSpaces & Spaces;
+export type CustomSpaces = Record<string | number, number | string>;
+export type MergedSpaces = DefualtSpaces & CustomSpaces;
 
 export const spaces = {
   0: 0,
@@ -29,7 +29,7 @@ export const spaces = {
   32: 128,
 } as const;
 
-export const mergeSpaces = (customSpaces: Spaces): MergedSpaces => {
+export const mergeSpaces = (customSpaces: CustomSpaces): MergedSpaces => {
   return {
     ...spaces,
     ...customSpaces,
