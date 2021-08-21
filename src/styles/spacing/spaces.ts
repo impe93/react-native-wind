@@ -1,6 +1,8 @@
-import { Spaces } from '../../types';
+export type DefualtSpaces = typeof spaces;
+export type Spaces = Record<string | number, number>;
+export type MergedSpaces = DefualtSpaces & Spaces;
 
-const spaces: Spaces = {
+export const spaces = {
   0: 0,
   0.25: 1,
   0.5: 2,
@@ -25,11 +27,11 @@ const spaces: Spaces = {
   24: 96,
   28: 112,
   32: 128,
-};
+} as const;
 
-export const mergeSpaces = (customSpaces: Spaces): Spaces => {
+export const mergeSpaces = (customSpaces: Spaces): MergedSpaces => {
   return {
     ...spaces,
     ...customSpaces,
-  };
+  } as const;
 };
