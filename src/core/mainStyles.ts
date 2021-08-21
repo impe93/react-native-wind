@@ -1,4 +1,4 @@
-import { Styles } from './types';
+import { Styles } from '../types';
 
 const composeStyles = (...styles: Styles[]) => {
   const composedStyles = styles.reduce((pv, cv) => ({ ...pv, ...cv }), {});
