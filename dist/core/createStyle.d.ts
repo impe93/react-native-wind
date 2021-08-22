@@ -1,3 +1,3 @@
 import { StyleProp } from 'react-native';
-import { Styles } from '../types';
-export declare const s: (...classes: (keyof Styles)[]) => StyleProp<any>;
+import { StyleClass } from '../types';
+export declare const s: (...classes: StyleClass[]) => StyleProp<any>;
