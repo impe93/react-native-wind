@@ -1,4 +1,5 @@
 import { buildMargins } from '../styles/spacing/margins';
+import { buildPaddings } from '../styles/spacing/paddings';
 import { Styles } from '../types';
 
 const composeStyles = (...styles: Styles[]) => {
@@ -6,4 +7,4 @@ const composeStyles = (...styles: Styles[]) => {
   return composedStyles;
 };
 
-export const mainStyles = composeStyles(buildMargins());
+export const mainStyles = composeStyles(buildMargins(), buildPaddings());
