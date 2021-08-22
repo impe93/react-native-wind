@@ -5,5 +5,3 @@ export type Valueof<T> = T[keyof T];
 
 export type Styles = MarginStyles | PaddingStyles;
 export type StyleClass = MarginClass | PaddingClass
-
-type something = keyof Styles
