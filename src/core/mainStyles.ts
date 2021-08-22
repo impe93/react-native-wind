@@ -1,3 +1,4 @@
+import { buildMargins } from '../styles/spacing/margins';
 import { Styles } from '../types';
 
 const composeStyles = (...styles: Styles[]) => {
@@ -5,4 +6,4 @@ const composeStyles = (...styles: Styles[]) => {
   return composedStyles;
 };
 
-export const mainStyles = composeStyles();
+export const mainStyles = composeStyles(buildMargins());
