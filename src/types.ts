@@ -10,6 +10,6 @@ export type Styles = MarginStyles | PaddingStyles;
 export type CustomConfig = {
   theme?: {
     spacing?: CustomSpaces
-    sizes?: CustomSizes
+    sizing?: CustomSizes
   }
 }

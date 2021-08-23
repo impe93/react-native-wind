@@ -70,7 +70,7 @@ export const sizes = {
 } as const;
 
 const getCustomSizes = (): CustomSizes | undefined =>
-  customStylesDefined?.theme?.sizes;
+  customStylesDefined?.theme?.sizing;
 
 export const mergeSizes = (): MergedSizes => {
   const customSizes = getCustomSizes();
