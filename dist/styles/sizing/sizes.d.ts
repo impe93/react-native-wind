@@ -1,7 +1,7 @@
-export declare type DefualtSizes = typeof sizes;
+export declare type DefualtSizes = typeof defualtSizes;
 export declare type CustomSizes = Record<string | number, number | string>;
 export declare type MergedSizes = DefualtSizes & CustomSizes;
-export declare const sizes: {
+export declare const defualtSizes: {
     readonly 0: 0;
     readonly 0.25: 1;
     readonly 0.5: 2;
@@ -66,3 +66,4 @@ export declare const sizes: {
     readonly full: "100%";
 };
 export declare const mergeSizes: () => MergedSizes;
+export declare const sizes: MergedSizes;

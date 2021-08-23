@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mergeSizes = exports.sizes = void 0;
+exports.sizes = exports.mergeSizes = exports.defualtSizes = void 0;
 const customize_1 = require("../../core/customize");
-exports.sizes = {
+exports.defualtSizes = {
     0: 0,
     0.25: 1,
     0.5: 2,
@@ -69,6 +69,7 @@ exports.sizes = {
 const getCustomSizes = () => { var _a; return (_a = customize_1.customStylesDefined === null || customize_1.customStylesDefined === void 0 ? void 0 : customize_1.customStylesDefined.theme) === null || _a === void 0 ? void 0 : _a.sizing; };
 const mergeSizes = () => {
     const customSizes = getCustomSizes();
-    return Object.assign(Object.assign({}, exports.sizes), customSizes);
+    return Object.assign(Object.assign({}, exports.defualtSizes), customSizes);
 };
 exports.mergeSizes = mergeSizes;
+exports.sizes = exports.mergeSizes();
