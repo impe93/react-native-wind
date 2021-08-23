@@ -66,7 +66,7 @@ exports.sizes = {
     '11/12': '91.666667%',
     full: '100%',
 };
-const getCustomSizes = () => { var _a; return (_a = customize_1.customStylesDefined === null || customize_1.customStylesDefined === void 0 ? void 0 : customize_1.customStylesDefined.theme) === null || _a === void 0 ? void 0 : _a.sizes; };
+const getCustomSizes = () => { var _a; return (_a = customize_1.customStylesDefined === null || customize_1.customStylesDefined === void 0 ? void 0 : customize_1.customStylesDefined.theme) === null || _a === void 0 ? void 0 : _a.sizing; };
 const mergeSizes = () => {
     const customSizes = getCustomSizes();
     return Object.assign(Object.assign({}, exports.sizes), customSizes);

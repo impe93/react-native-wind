@@ -7,6 +7,6 @@ export declare type Styles = MarginStyles | PaddingStyles;
 export declare type CustomConfig = {
     theme?: {
         spacing?: CustomSpaces;
-        sizes?: CustomSizes;
+        sizing?: CustomSizes;
     };
 };
