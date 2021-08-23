@@ -5,10 +5,10 @@ export const flexDirections = {
   'flex-row-reverse': {
     flexDirection: 'row-reverse',
   },
-  'flex-column': {
+  'flex-col': {
     flexDirection: 'column',
   },
-  'flex-column-reverse': {
+  'flex-col-reverse': {
     flexDirection: 'column-reverse',
   },
 } as const;
