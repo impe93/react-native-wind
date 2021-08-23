@@ -17,6 +17,7 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@types/jest": "^27.0.1",
+    "@types/lodash": "^4.14.172",
     "@types/react-native": "^0.64.13",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
@@ -33,7 +34,5 @@
   "peerDependencies": {
     "react-native": "*"
   },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  }
+  "dependencies": {}
 }
