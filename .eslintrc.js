@@ -5,6 +5,12 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'],
   },
+  rules: {
+    "@typescript-eslint/no-unsafe-assignment": ["off"],
+    "@typescript-eslint/no-unsafe-return": ["off"],
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-var-requires": ["off"]
+  },
   plugins: ['@typescript-eslint', 'jest'],
   extends: [
     'eslint:recommended',

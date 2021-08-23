@@ -1,8 +1,8 @@
 {
   "name": "react-native-wind",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A utility-first style library for React Native strongly inspired by TailwindCSS",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/impe93/react-native-wind",
   "author": "Lorenzo Imperatrice",
@@ -10,12 +10,14 @@
   "scripts": {
     "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
     "prettier": "prettier --check .",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "compile": "tsc"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@types/jest": "^27.0.1",
+    "@types/lodash": "^4.14.172",
     "@types/react-native": "^0.64.13",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
@@ -32,7 +34,5 @@
   "peerDependencies": {
     "react-native": "*"
   },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  }
+  "dependencies": {}
 }

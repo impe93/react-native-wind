@@ -1,8 +1,11 @@
-import { StyleSheet } from 'react-native';
+import { StyleProp, StyleSheet } from 'react-native';
 import { mainStyles } from './mainStyles';
-import { Styles, StyleKeys } from './types';
+import { Styles } from '../types';
 
-export const s = (...classes: StyleKeys[]): Styles => {
-  const flattenClasses = classes.reduce<Styles[]>((pv, cv) => [...pv, mainStyles[cv]], []);
-  return StyleSheet.flatten(flattenClasses)
+export const s = (...classes: string[]): StyleProp<any> => {
+  const flattenClasses = classes.reduce<Styles[]>(
+    (pv, cv) => [...pv, mainStyles[cv]] as Styles[],
+    [],
+  );
+  return StyleSheet.flatten(flattenClasses);
 };
