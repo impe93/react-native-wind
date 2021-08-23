@@ -65,4 +65,4 @@ export declare const sizes: {
     readonly '11/12': "91.666667%";
     readonly full: "100%";
 };
-export declare const mergeSizes: (customSizes: CustomSizes) => MergedSizes;
+export declare const mergeSizes: () => MergedSizes;
