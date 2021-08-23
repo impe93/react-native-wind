@@ -1,17 +1,19 @@
 export const alignItems = {
   'items-center': {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   'items-start': {
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   'items-end': {
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
   },
   'items-baseline': {
-    alignItems: 'baseline'
+    alignItems: 'baseline',
   },
   'items-stretch': {
-    alignItems: 'stretch'
+    alignItems: 'stretch',
   },
 } as const;
+
+export type AlignItemsClass = keyof typeof alignItems;

@@ -9,3 +9,5 @@ export const flexWrap = {
     flexWrap: 'wrap-reverse',
   },
 } as const;
+
+export type FlexWrapClass = keyof typeof flexWrap;

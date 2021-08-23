@@ -20,3 +20,5 @@ export const flex = {
     flexBasis: 'auto',
   },
 } as const;
+
+export type FlexClass = keyof typeof flex;

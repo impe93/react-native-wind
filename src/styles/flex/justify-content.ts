@@ -18,3 +18,5 @@ export const justifyContent = {
     justifyContent: 'space-evenly',
   },
 } as const;
+
+export type JustifyContentClass = keyof typeof justifyContent;

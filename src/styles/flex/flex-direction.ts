@@ -12,3 +12,5 @@ export const flexDirections = {
     flexDirection: 'column-reverse',
   },
 } as const;
+
+export type FlexDirectionsClass = keyof typeof flexDirections;
