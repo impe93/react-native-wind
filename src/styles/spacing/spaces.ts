@@ -1,8 +1,10 @@
-export type DefualtSpaces = typeof spaces;
-export type CustomSpaces = Record<string | number, number | string>;
-export type MergedSpaces = DefualtSpaces & CustomSpaces;
+import { customStylesDefined } from '../../core/customize';
 
-export const spaces = {
+export type DefualtSpaces = typeof defaultSpaces;
+export type CustomSpaces = Record<string | number, number | string>;
+export type MergedSpaces = (DefualtSpaces & CustomSpaces) | DefualtSpaces;
+
+export const defaultSpaces = {
   0: 0,
   0.25: 1,
   0.5: 2,
@@ -29,9 +31,16 @@ export const spaces = {
   32: 128,
 } as const;
 
-export const mergeSpaces = (customSpaces: CustomSpaces): MergedSpaces => {
+const getCustomSpaces = (): CustomSpaces | undefined =>
+  customStylesDefined?.theme?.spacing;
+
+export const mergeSpaces = (): MergedSpaces => {
+  const customSpaces = getCustomSpaces();
+
   return {
-    ...spaces,
+    ...defaultSpaces,
     ...customSpaces,
   } as const;
 };
+
+export const spaces = mergeSpaces();
