@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mergeSpaces = exports.spaces = void 0;
-exports.spaces = {
+exports.spaces = exports.mergeSpaces = exports.defaultSpaces = void 0;
+const customize_1 = require("../../core/customize");
+exports.defaultSpaces = {
     0: 0,
     0.25: 1,
     0.5: 2,
@@ -27,7 +28,10 @@ exports.spaces = {
     28: 112,
     32: 128,
 };
-const mergeSpaces = (customSpaces) => {
-    return Object.assign(Object.assign({}, exports.spaces), customSpaces);
+const getCustomSpaces = () => { var _a; return (_a = customize_1.customStylesDefined === null || customize_1.customStylesDefined === void 0 ? void 0 : customize_1.customStylesDefined.theme) === null || _a === void 0 ? void 0 : _a.spacing; };
+const mergeSpaces = () => {
+    const customSpaces = getCustomSpaces();
+    return Object.assign(Object.assign({}, exports.defaultSpaces), customSpaces);
 };
 exports.mergeSpaces = mergeSpaces;
+exports.spaces = exports.mergeSpaces();
