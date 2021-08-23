@@ -1,7 +1,7 @@
-export declare type DefualtSpaces = typeof spaces;
+export declare type DefualtSpaces = typeof defaultSpaces;
 export declare type CustomSpaces = Record<string | number, number | string>;
-export declare type MergedSpaces = DefualtSpaces & CustomSpaces;
-export declare const spaces: {
+export declare type MergedSpaces = (DefualtSpaces & CustomSpaces) | DefualtSpaces;
+export declare const defaultSpaces: {
     readonly 0: 0;
     readonly 0.25: 1;
     readonly 0.5: 2;
@@ -27,4 +27,5 @@ export declare const spaces: {
     readonly 28: 112;
     readonly 32: 128;
 };
-export declare const mergeSpaces: (customSpaces: CustomSpaces) => MergedSpaces;
+export declare const mergeSpaces: () => MergedSpaces;
+export declare const spaces: MergedSpaces;

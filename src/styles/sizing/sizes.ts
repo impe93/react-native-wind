@@ -1,3 +1,5 @@
+import { customStylesDefined } from '../../core/customize';
+
 export type DefualtSizes = typeof sizes;
 export type CustomSizes = Record<string | number, number | string>;
 export type MergedSizes = DefualtSizes & CustomSizes;
@@ -67,7 +69,12 @@ export const sizes = {
   full: '100%',
 } as const;
 
-export const mergeSizes = (customSizes: CustomSizes): MergedSizes => {
+const getCustomSizes = (): CustomSizes | undefined =>
+  customStylesDefined?.theme?.sizing;
+
+export const mergeSizes = (): MergedSizes => {
+  const customSizes = getCustomSizes();
+
   return {
     ...sizes,
     ...customSizes,
