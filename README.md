@@ -10,7 +10,7 @@ React Native Wind is a utility-first style library that offers a low-level API. 
 
 ## Documentation
 
-Sulla documentazione ufficiale si trovano tutte le informazioni sul come utilizzare la libreria.
+On the official documentation you can find all the information on how to use the library.
 
 Link: [reactnativewind.com](reactnativewind.com)
 
