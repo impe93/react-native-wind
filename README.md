@@ -1,22 +1,19 @@
 # react-native-wind
 
-## Description
+## What is it?
 
-**react-native-wind** is a **utility-first** style library for React Native strongly inspired by [TailwindCSS](https://tailwindcss.com/) that offers a low-level API that allows you to create graphical components quickly, using this approach you avoid writing the same style rules over and over again. These rules can be composed to create any style you want.
+This library comes from the need to write the style of an application in a quick and simple way, using a concise and easy to remember API.
 
-## Installation
+React Native Wind is strongly inspired by [TailwindCSS](https://tailwindcss.com/) and, as you will see, even the names of the classes used are often the same.
 
-This library was made exclusively for react native, so you **must have** React Native installed to use it. To install React Native you can follow the [official documentation](https://reactnative.dev/docs/environment-setup).
+React Native Wind is a utility-first style library that offers a low-level API. By using this approach you avoid writing the same style rules over and over again. These rules can be composed to create most of your necessary styles.
 
-Install the library is easy.
+## Documentation
 
-**NPM:**
+On the official documentation you can find all the information on how to use the library.
 
-```
-npm install react-native-wind
-```
+Link: [reactnativewind.com](http://www.reactnativewind.com)
 
-**Yarn:**
-```
-$ yarn add react-native-wind
-```
+## License
+
+React Native Wind is GPL 3.0 licensed, as found in the [LICENSE](/LICENSE) file.
