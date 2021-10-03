@@ -1,4 +1,5 @@
 import { buildFlex } from '../styles/flex/flex-style';
+import { buildLayout } from '../styles/layout/layout';
 import { buildHeights } from '../styles/sizing/heights';
 import { buildWidths } from '../styles/sizing/widths';
 import { buildMargins } from '../styles/spacing/margins';
@@ -16,4 +17,5 @@ export const mainStyles = composeStyles(
   buildHeights(),
   buildWidths(),
   buildFlex(),
+  buildLayout(),
 );
