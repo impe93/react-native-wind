@@ -1,6 +1,10 @@
 import { FlexStyle } from './styles/flex/flex-style';
 import { LayoutStyle } from './styles/layout/layout';
 import { HeightStyle } from './styles/sizing/heights';
+import { MaxHeightStyle } from './styles/sizing/max-height';
+import { MaxWidthStyle } from './styles/sizing/max-width';
+import { MinHeightStyle } from './styles/sizing/min-height';
+import { MinWidthClass, MinWidthStyle } from './styles/sizing/min-width';
 import { CustomSizes } from './styles/sizing/sizes';
 import { WidthStyle } from './styles/sizing/widths';
 import { MarginStyles } from './styles/spacing/margins';
@@ -14,6 +18,10 @@ export type Styles =
   | PaddingStyles
   | HeightStyle
   | WidthStyle
+  | MaxWidthStyle
+  | MaxHeightStyle
+  | MinWidthStyle
+  | MinHeightStyle
   | FlexStyle
   | LayoutStyle;
 

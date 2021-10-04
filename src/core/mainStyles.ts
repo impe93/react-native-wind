@@ -1,6 +1,10 @@
 import { buildFlex } from '../styles/flex/flex-style';
 import { buildLayout } from '../styles/layout/layout';
 import { buildHeights } from '../styles/sizing/heights';
+import { buildMaxHeights } from '../styles/sizing/max-height';
+import { buildMaxWidths } from '../styles/sizing/max-width';
+import { buildMinHeights } from '../styles/sizing/min-height';
+import { buildMinWidths } from '../styles/sizing/min-width';
 import { buildWidths } from '../styles/sizing/widths';
 import { buildMargins } from '../styles/spacing/margins';
 import { buildPaddings } from '../styles/spacing/paddings';
@@ -12,10 +16,14 @@ const composeStyles = (...styles: Styles[]) => {
 };
 
 export const mainStyles = composeStyles(
-  buildMargins(),
-  buildPaddings(),
   buildHeights(),
   buildWidths(),
-  buildFlex(),
   buildLayout(),
+  buildMaxHeights(),
+  buildMinHeights(),
+  buildMaxWidths(),
+  buildMinWidths(),
+  buildMargins(),
+  buildPaddings(),
+  buildFlex(),
 );
