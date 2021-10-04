@@ -4,7 +4,7 @@ import { HeightStyle } from './styles/sizing/heights';
 import { MaxHeightStyle } from './styles/sizing/max-height';
 import { MaxWidthStyle } from './styles/sizing/max-width';
 import { MinHeightStyle } from './styles/sizing/min-height';
-import { MinWidthClass, MinWidthStyle } from './styles/sizing/min-width';
+import { MinWidthStyle } from './styles/sizing/min-width';
 import { CustomSizes } from './styles/sizing/sizes';
 import { WidthStyle } from './styles/sizing/widths';
 import { MarginStyles } from './styles/spacing/margins';
