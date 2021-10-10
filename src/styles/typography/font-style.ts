@@ -1,4 +1,4 @@
-export const fontSizes = {
+export const fontStyles = {
   italic: {
     fontStyle: 'italic',
   },
