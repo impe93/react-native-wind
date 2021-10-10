@@ -11,7 +11,7 @@ export type TypographyStyle = typeof fontSizes &
   typeof fontStyles &
   typeof fontWeights;
 
-export const buildLayout = (): TypographyStyle => {
+export const buildTypography = (): TypographyStyle => {
   return {
     ...fontSizes,
     ...fontStyles,
