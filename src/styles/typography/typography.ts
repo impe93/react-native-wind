@@ -5,7 +5,7 @@ import { fontVariants } from './font-variant';
 import { letterSpacing } from './letter-spacing';
 import { textAlign } from './text-align';
 import { textAlignVertical } from './text-align-vertical';
-import { textDecoration } from './text-decoration';
+import { textDecorationStyle } from './text-decoration-style';
 
 export type TypographyClass =
   | keyof typeof fontSizes
@@ -14,7 +14,7 @@ export type TypographyClass =
   | keyof typeof fontVariants
   | keyof typeof letterSpacing
   | keyof typeof textAlignVertical
-  | keyof typeof textDecoration
+  | keyof typeof textDecorationStyle
   | keyof typeof textAlign;
 
 export type TypographyStyle = typeof fontSizes &
@@ -23,7 +23,7 @@ export type TypographyStyle = typeof fontSizes &
   typeof fontVariants &
   typeof textAlign &
   typeof textAlignVertical &
-  typeof textDecoration &
+  typeof textDecorationStyle &
   typeof letterSpacing;
 
 export const buildTypography = (): TypographyStyle => {
@@ -35,6 +35,6 @@ export const buildTypography = (): TypographyStyle => {
     ...letterSpacing,
     ...textAlign,
     ...textAlignVertical,
-    ...textDecoration,
+    ...textDecorationStyle,
   } as const;
 };

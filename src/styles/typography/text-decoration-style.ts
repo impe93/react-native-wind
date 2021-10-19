@@ -1,4 +1,4 @@
-export const textDecoration = {
+export const textDecorationStyle = {
   'text-decoration-dashed': {
     textDecorationStyle: 'dashed',
   },
