@@ -4,6 +4,7 @@ import { fontWeights } from './font-weight';
 import { fontVariants } from './font-variant';
 import { letterSpacing } from './letter-spacing';
 import { textAlign } from './text-align';
+import { textAlignVertical } from './text-align-vertical';
 
 export type TypographyClass =
   | keyof typeof fontSizes
@@ -11,6 +12,7 @@ export type TypographyClass =
   | keyof typeof fontWeights
   | keyof typeof fontVariants
   | keyof typeof letterSpacing
+  | keyof typeof textAlignVertical
   | keyof typeof textAlign;
 
 export type TypographyStyle = typeof fontSizes &
@@ -18,6 +20,7 @@ export type TypographyStyle = typeof fontSizes &
   typeof fontWeights &
   typeof fontVariants &
   typeof textAlign &
+  typeof textAlignVertical &
   typeof letterSpacing;
 
 export const buildTypography = (): TypographyStyle => {
@@ -28,5 +31,6 @@ export const buildTypography = (): TypographyStyle => {
     ...fontVariants,
     ...letterSpacing,
     ...textAlign,
+    ...textAlignVertical,
   } as const;
 };
