@@ -1,14 +1,14 @@
 export const textDecoration = {
   'text-decoration-dashed': {
-    textDecoration: 'dashed',
+    textDecorationStyle: 'dashed',
   },
   'text-decoration-dotted': {
-    textDecoration: 'dotted',
+    textDecorationStyle: 'dotted',
   },
   'text-decoration-double': {
-    textDecoration: 'double',
+    textDecorationStyle: 'double',
   },
   'text-decoration-solid': {
-    textDecoration: 'solid',
+    textDecorationStyle: 'solid',
   },
 } as const;
