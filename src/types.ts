@@ -46,5 +46,6 @@ export type CustomConfig = {
     spacing?: CustomSpaces;
     sizing?: CustomSizes;
     fontSize?: CustomFontSize;
+    colors: Record<string, Record<string, string> | string>;
   };
 };
