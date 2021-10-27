@@ -8,6 +8,7 @@ import { textAlignVertical } from './text-align-vertical';
 import { textDecorationStyle } from './text-decoration-style';
 import { textDecorationLine } from './text-decoration-line';
 import { textTransform } from './text-transform';
+import { buildTextColorStyles } from './text-color';
 
 export type TypographyClass =
   | keyof typeof fontSizes
@@ -44,5 +45,6 @@ export const buildTypography = (): TypographyStyle => {
     ...textDecorationStyle,
     ...textDecorationLine,
     ...textTransform,
+    ...buildTextColorStyles(),
   } as const;
 };
