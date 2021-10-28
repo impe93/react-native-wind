@@ -9,8 +9,6 @@ export const colorStyleBuilder = (
   Object.keys(colors).forEach((ck) => {
     if (typeof colors[ck] === 'object') {
       Object.keys(colors[ck]).forEach((cs) => {
-        styles[''] = {};
-
         styles[`${classPrefix}-${ck}-${cs}`] = {
           [styleName]: colors[ck][cs],
         };
