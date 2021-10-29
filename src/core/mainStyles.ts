@@ -8,6 +8,7 @@ import { buildMinWidths } from '../styles/sizing/min-width';
 import { buildWidths } from '../styles/sizing/widths';
 import { buildMargins } from '../styles/spacing/margins';
 import { buildPaddings } from '../styles/spacing/paddings';
+import { buildTypography } from '../styles/typography/typography';
 import { Styles } from '../types';
 
 const composeStyles = (...styles: Styles[]) => {
@@ -26,4 +27,5 @@ export const mainStyles = composeStyles(
   buildMargins(),
   buildPaddings(),
   buildFlex(),
+  buildTypography(),
 );

@@ -10,6 +10,8 @@ import { WidthStyle } from './styles/sizing/widths';
 import { MarginStyles } from './styles/spacing/margins';
 import { PaddingStyles } from './styles/spacing/paddings';
 import { CustomSpaces } from './styles/spacing/spaces';
+import { CustomFontSize } from './styles/typography/font-size';
+import { TypographyStyle } from './styles/typography/typography';
 
 export type Valueof<T> = T[keyof T];
 
@@ -23,7 +25,8 @@ export type Styles =
   | MinWidthStyle
   | MinHeightStyle
   | FlexStyle
-  | LayoutStyle;
+  | LayoutStyle
+  | TypographyStyle;
 
 export type StylesClasses<S extends string, T = Styles> = T extends Record<
   string,
@@ -42,5 +45,7 @@ export type CustomConfig = {
   theme?: {
     spacing?: CustomSpaces;
     sizing?: CustomSizes;
+    fontSize?: CustomFontSize;
+    colors: Record<string, Record<string, string> | string>;
   };
 };
