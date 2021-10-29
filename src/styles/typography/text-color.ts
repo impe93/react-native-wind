@@ -2,7 +2,7 @@ import { colorStyleBuilder } from '../../helpers/color-style-builder';
 
 export type TextColorClass = `text-${string}-${string}` | `text-${string}`;
 export type TextColorStyles = {
-  [key: TextColorClass]: { color: string };
+  [key: string]: { color: string };
 };
 
 export const buildTextColorStyles = (): TextColorStyles => {
