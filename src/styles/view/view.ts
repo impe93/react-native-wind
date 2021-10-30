@@ -1,12 +1,11 @@
-import {
-  BackgroundColorStyles,
-  buildBackgroundColorStyles,
-} from './background-color';
+import { buildBackgroundColorStyles } from './background-color';
+import { BorderRadiusStyles, buildBorderRadiusStyles } from './border-radius';
 
-export type ViewStyle = BackgroundColorStyles;
+export type ViewStyle = BorderRadiusStyles;
 
 export const buildView = (): ViewStyle => {
   return {
-    ...buildBackgroundColorStyles,
+    ...buildBackgroundColorStyles(),
+    ...buildBorderRadiusStyles(),
   } as const;
 };
