@@ -1,6 +1,7 @@
 import { customStylesDefined } from '../core/customize';
 
 export const defaultColors = {
+  transparent: 'transparent',
   black: '#000',
   white: '#fff',
   rose: {
