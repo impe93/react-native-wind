@@ -12,6 +12,7 @@ import { PaddingStyles } from './styles/spacing/paddings';
 import { CustomSpaces } from './styles/spacing/spaces';
 import { CustomFontSize } from './styles/typography/font-size';
 import { TypographyStyle } from './styles/typography/typography';
+import { ViewStyle } from './styles/view/view';
 
 export type Valueof<T> = T[keyof T];
 
@@ -26,7 +27,8 @@ export type Styles =
   | MinHeightStyle
   | FlexStyle
   | LayoutStyle
-  | TypographyStyle;
+  | TypographyStyle
+  | ViewStyle;
 
 export type StylesClasses<S extends string, T = Styles> = T extends Record<
   string,
