@@ -1,6 +1,6 @@
 {
   "name": "react-native-wind",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "A utility-first style library for React Native strongly inspired by TailwindCSS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
