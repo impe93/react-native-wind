@@ -15,7 +15,7 @@ export const colorStyleBuilder = (
       });
     } else {
       styles[`${classPrefix}-${ck}`] = {
-        color: colors[ck] as string,
+        [styleName]: colors[ck] as string,
       };
     }
   });
