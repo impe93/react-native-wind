@@ -1,4 +1,5 @@
 import { buildBackgroundColorStyles } from './background-color';
+import { buildBorderColorStyles } from './border-color';
 import {
   BorderRadiusClass,
   BorderRadiusStyles,
@@ -20,6 +21,7 @@ export const buildView = (): ViewStyle => {
   return {
     ...buildBackgroundColorStyles(),
     ...buildBorderRadiusStyles(),
+    ...buildBorderColorStyles(),
     ...borderWidths,
     ...borderStyles,
   } as const;
