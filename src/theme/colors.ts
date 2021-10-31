@@ -288,7 +288,7 @@ export const buildColors = (): Record<
 > => {
   return {
     ...defaultColors,
-    ...customStylesDefined.theme.colors,
+    ...customStylesDefined?.theme?.colors,
   };
 };
 
