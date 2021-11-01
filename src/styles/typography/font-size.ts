@@ -1,8 +1,3 @@
-export type CustomFontSize = {
-  [x: string]: string | number;
-  [x: number]: string | number;
-};
-
 export const fontSizes = {
   'text-xs': {
     fontSize: 12,

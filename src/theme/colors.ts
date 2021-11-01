@@ -282,14 +282,11 @@ export const defaultColors = {
   },
 } as const;
 
-export const buildColors = (): Record<
-  string,
-  Record<string, string> | string
-> => {
-  return {
+export const buildColors = (): void => {
+  colors = {
     ...defaultColors,
     ...customStylesDefined?.theme?.colors,
   };
 };
 
-export default buildColors();
+export let colors: Record<string, Record<string, string> | string> = {};

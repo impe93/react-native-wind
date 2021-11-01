@@ -34,13 +34,13 @@ export const defaultSpaces = {
 const getCustomSpaces = (): CustomSpaces | undefined =>
   customStylesDefined?.theme?.spacing;
 
-export const mergeSpaces = (): MergedSpaces => {
+export const mergeSpaces = (): void => {
   const customSpaces = getCustomSpaces();
 
-  return {
+  spaces = {
     ...defaultSpaces,
     ...customSpaces,
   } as const;
 };
 
-export const spaces = mergeSpaces();
+export let spaces: MergedSpaces;

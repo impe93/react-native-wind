@@ -72,13 +72,13 @@ export const defualtSizes = {
 const getCustomSizes = (): CustomSizes | undefined =>
   customStylesDefined?.theme?.sizing;
 
-export const mergeSizes = (): MergedSizes => {
+export const mergeSizes = (): void => {
   const customSizes = getCustomSizes();
 
-  return {
+  sizes = {
     ...defualtSizes,
     ...customSizes,
   } as const;
 };
 
-export const sizes = mergeSizes();
+export let sizes: MergedSizes;

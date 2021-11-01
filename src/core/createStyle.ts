@@ -14,5 +14,5 @@ export const s = (
     .trim()
     .split(' ')
     .reduce<Styles[]>((pv, cv) => [...pv, mainStyles[cv]] as Styles[], []);
-  return StyleSheet.flatten(flattenClasses);
+  return StyleSheet.flatten(flattenClasses as any);
 };
