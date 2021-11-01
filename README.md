@@ -16,4 +16,4 @@ Link: [reactnativewind.com](http://www.reactnativewind.com)
 
 ## License
 
-React Native Wind is GPL 3.0 licensed, as found in the [LICENSE](/LICENSE) file.
+React Native Wind is MIT licensed, as found in the [LICENSE](/LICENSE) file.
