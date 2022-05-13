@@ -11,7 +11,7 @@ export type MaxHeightClass = `max-h-${keyof typeof defualtSizes}`;
 export const buildMaxHeights = (): MaxHeightStyle => {
   const maxHeight: MaxHeightStyle = {} as MaxHeightStyle;
   Object.keys(sizes).forEach((s) => {
-    maxHeight[`min-h-${s}`] = {
+    maxHeight[`max-h-${s}`] = {
       maxHeight: sizes[s],
     };
   });
