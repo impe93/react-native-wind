@@ -1,14 +1,14 @@
 export const textAlignVertical = {
   'text-vertical-auto': {
-    textAlign: 'auto',
+    textAlignVertical: 'auto',
   },
   'text-vertical-bottom': {
-    textAlign: 'bottom',
+    textAlignVertical: 'bottom',
   },
   'text-vertical-center': {
-    textAlign: 'center',
+    textAlignVertical: 'center',
   },
   'text-vertical-top': {
-    textAlign: 'top',
+    textAlignVertical: 'top',
   },
 } as const;
