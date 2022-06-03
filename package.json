@@ -1,6 +1,6 @@
 {
   "name": "react-native-wind",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A utility-first style library for React Native strongly inspired by TailwindCSS",
   "keywords": [
     "react-native",
