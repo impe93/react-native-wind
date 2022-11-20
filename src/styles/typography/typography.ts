@@ -1,4 +1,4 @@
-import { fontSizes } from './font-size';
+import { buildFontSizes, FontSizeClass, FontSizeStyle } from './font-size';
 import { fontStyles } from './font-style';
 import { fontWeights } from './font-weight';
 import { fontVariants } from './font-variant';
@@ -11,7 +11,7 @@ import { textTransform } from './text-transform';
 import { buildTextColorStyles } from './text-color';
 
 export type TypographyClass =
-  | keyof typeof fontSizes
+  | FontSizeClass
   | keyof typeof fontStyles
   | keyof typeof fontWeights
   | keyof typeof fontVariants
@@ -22,7 +22,7 @@ export type TypographyClass =
   | keyof typeof textTransform
   | keyof typeof textAlign;
 
-export type TypographyStyle = typeof fontSizes &
+export type TypographyStyle = FontSizeStyle &
   typeof fontStyles &
   typeof fontWeights &
   typeof fontVariants &
@@ -35,7 +35,6 @@ export type TypographyStyle = typeof fontSizes &
 
 export const buildTypography = (): TypographyStyle => {
   return {
-    ...fontSizes,
     ...fontStyles,
     ...fontWeights,
     ...fontVariants,
@@ -45,6 +44,7 @@ export const buildTypography = (): TypographyStyle => {
     ...textDecorationStyle,
     ...textDecorationLine,
     ...textTransform,
+    ...buildFontSizes(),
     ...buildTextColorStyles(),
   } as const;
 };

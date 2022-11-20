@@ -10,6 +10,7 @@ import { buildWidths } from '../styles/sizing/widths';
 import { buildMargins } from '../styles/spacing/margins';
 import { buildPaddings } from '../styles/spacing/paddings';
 import { mergeSpaces } from '../styles/spacing/spaces';
+import { mergeFontSizes } from '../styles/typography/font-size';
 import { buildTypography } from '../styles/typography/typography';
 import { buildView } from '../styles/view/view';
 import { buildColors } from '../theme/colors';
@@ -18,6 +19,7 @@ import { Styles } from '../types';
 export const composeStyles = (): void => {
   mergeSizes();
   mergeSpaces();
+  mergeFontSizes();
   buildColors();
 
   const styles = [
