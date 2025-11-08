@@ -1,6 +1,6 @@
 import { StyleProp, StyleSheet } from 'react-native';
 import { mainStyles } from './mainStyles';
-import { Styles } from '../types';
+import { StyleValue } from '../types';
 
 export const s = (
   classes: TemplateStringsArray,
@@ -13,6 +13,6 @@ export const s = (
     .replace(/\s+/g, ' ') // Remove extra spaces
     .trim()
     .split(' ')
-    .reduce<Styles[]>((pv, cv) => [...pv, mainStyles[cv]] as Styles[], []);
+    .reduce<StyleValue[]>((pv, cv) => [...pv, mainStyles[cv]] as StyleValue[], []);
   return StyleSheet.flatten(flattenClasses as any);
 };

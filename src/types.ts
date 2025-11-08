@@ -17,31 +17,20 @@ import { ViewStyle } from './styles/view/view';
 export type Valueof<T> = T[keyof T];
 
 export type Styles =
-  | MarginStyles
-  | PaddingStyles
-  | HeightStyle
-  | WidthStyle
-  | MaxWidthStyle
-  | MaxHeightStyle
-  | MinWidthStyle
-  | MinHeightStyle
-  | FlexStyle
-  | LayoutStyle
-  | TypographyStyle
-  | ViewStyle;
+  & MarginStyles
+  & PaddingStyles
+  & HeightStyle
+  & WidthStyle
+  & MaxWidthStyle
+  & MaxHeightStyle
+  & MinWidthStyle
+  & MinHeightStyle
+  & FlexStyle
+  & LayoutStyle
+  & TypographyStyle
+  & ViewStyle;
 
-export type StylesClasses<S extends string, T = Styles> = T extends Record<
-  string,
-  unknown
->
-  ? S extends `${infer I1} ${infer I2}`
-    ? I1 extends keyof T
-      ? `${I1} ${StylesClasses<I2>}`
-      : `${keyof T & string}`
-    : S extends keyof T
-    ? `${S}`
-    : keyof T & string
-  : '';
+export type StyleValue = Valueof<Styles>;
 
 export type CustomConfig = {
   theme?: {
