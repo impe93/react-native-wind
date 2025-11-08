@@ -5,6 +5,9 @@ export const overflow = {
   'overflow-hidden': {
     overflow: 'hidden',
   },
+  'overflow-scroll': {
+    overflow: 'scroll',
+  },
 } as const;
 
 export type OverflowClass = keyof typeof overflow;

@@ -9,7 +9,9 @@ type MarginReactNativeNames =
   | 'marginRight'
   | 'marginHorizontal'
   | 'marginVertical'
-  | 'margin';
+  | 'margin'
+  | 'marginStart'
+  | 'marginEnd';
 
 export type MarginStyles = {
   [key in MarginClass]: {
@@ -29,6 +31,8 @@ const marginPositionsPair: MarginPositionPairType = {
   r: 'marginRight',
   x: 'marginHorizontal',
   y: 'marginVertical',
+  s: 'marginStart',
+  e: 'marginEnd',
 };
 
 export type MarginClass = `m${typeof positions[number]}-${keyof typeof spaces}`;

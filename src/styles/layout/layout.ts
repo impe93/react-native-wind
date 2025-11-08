@@ -1,5 +1,17 @@
 import { backfaceVisibility, BackfaceVisibilityClass } from './backface-visibility';
+import { boxSizing, BoxSizingClass } from './box-sizing';
+import { direction, DirectionClass } from './direction';
 import { display, DisplayClass } from './display';
+import {
+  buildColumnGap,
+  buildGap,
+  buildRowGap,
+  ColumnGapClass,
+  GapClass,
+  GapStyle,
+  RowGapClass,
+} from './gap';
+import { isolation, IsolationClass } from './isolation';
 import { objectFit, ObjectFitClass } from './object-fit';
 import { buildOpacity, OpacityClass, OpacityStyle } from './opacity';
 import { overflow, OverflowClass } from './overflow';
@@ -21,7 +33,13 @@ export type LayoutClass =
   | DisplayClass
   | BackfaceVisibilityClass
   | ObjectFitClass
-  | OpacityClass;
+  | OpacityClass
+  | GapClass
+  | RowGapClass
+  | ColumnGapClass
+  | DirectionClass
+  | IsolationClass
+  | BoxSizingClass;
 
 export type LayoutStyle = typeof resizeMode &
   typeof overflow &
@@ -31,7 +49,11 @@ export type LayoutStyle = typeof resizeMode &
   typeof backfaceVisibility &
   typeof objectFit &
   TopBottomLeftRightStyle &
-  OpacityStyle;
+  OpacityStyle &
+  GapStyle &
+  typeof direction &
+  typeof isolation &
+  typeof boxSizing;
 
 export const buildLayout = (): LayoutStyle => {
   return {
@@ -44,5 +66,11 @@ export const buildLayout = (): LayoutStyle => {
     ...backfaceVisibility,
     ...objectFit,
     ...buildOpacity(),
+    ...buildGap(),
+    ...buildRowGap(),
+    ...buildColumnGap(),
+    ...direction,
+    ...isolation,
+    ...boxSizing,
   } as const;
 };

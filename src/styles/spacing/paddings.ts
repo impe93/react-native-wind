@@ -9,7 +9,9 @@ type PaddingReactNativeNames =
   | 'paddingRight'
   | 'paddingHorizontal'
   | 'paddingVertical'
-  | 'padding';
+  | 'padding'
+  | 'paddingStart'
+  | 'paddingEnd';
 
 export type PaddingStyles = {
   [key in PaddingClass]: {
@@ -29,6 +31,8 @@ const paddingPositionsPair: PaddingPositionPairType = {
   r: 'paddingRight',
   x: 'paddingHorizontal',
   y: 'paddingVertical',
+  s: 'paddingStart',
+  e: 'paddingEnd',
 };
 
 export type PaddingClass = `p${typeof positions[number]}-${keyof typeof spaces}`;

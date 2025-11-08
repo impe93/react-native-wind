@@ -2,6 +2,7 @@ import { alignContent, AlignContentClass } from './align-content';
 import { alignItems, AlignItemsClass } from './align-items';
 import { alignSelf, AlignSelfClass } from './align-self';
 import { flex, FlexClass } from './flex';
+import { buildFlexBasis, FlexBasisClass, FlexBasisStyle } from './flex-basis';
 import { flexDirections, FlexDirectionsClass } from './flex-direction';
 import { flexGrow, FlexGrowClass } from './flex-grow';
 import { flexShrink, FlexShrinkClass } from './flex-shrink';
@@ -13,6 +14,7 @@ export type FlexStyleClass =
   | AlignItemsClass
   | AlignSelfClass
   | FlexDirectionsClass
+  | FlexBasisClass
   | FlexGrowClass
   | FlexShrinkClass
   | FlexWrapClass
@@ -22,6 +24,7 @@ export type FlexStyleClass =
 export type FlexStyle = typeof alignItems &
   typeof flex &
   typeof flexDirections &
+  FlexBasisStyle &
   typeof flexGrow &
   typeof flexShrink &
   typeof flexWrap &
@@ -36,6 +39,7 @@ export const buildFlex = (): FlexStyle => {
     ...alignSelf,
     ...flex,
     ...flexDirections,
+    ...buildFlexBasis(),
     ...flexGrow,
     ...flexShrink,
     ...flexWrap,

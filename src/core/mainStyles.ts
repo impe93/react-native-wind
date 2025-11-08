@@ -1,5 +1,6 @@
 import { buildFlex } from '../styles/flex/flex-style';
 import { buildLayout } from '../styles/layout/layout';
+import { buildAspectRatio } from '../styles/sizing/aspect-ratio';
 import { buildHeights } from '../styles/sizing/heights';
 import { buildMaxHeights } from '../styles/sizing/max-height';
 import { buildMaxWidths } from '../styles/sizing/max-width';
@@ -35,6 +36,7 @@ export const composeStyles = (): void => {
     buildFlex(),
     buildTypography(),
     buildView(),
+    buildAspectRatio(),
   ];
 
   mainStyles = styles.reduce((pv, cv) => ({ ...pv, ...cv }), {}) as Styles;

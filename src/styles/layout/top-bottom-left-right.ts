@@ -1,6 +1,6 @@
 import { Valueof } from '../../types';
 
-const sides = ['top', 'bottom', 'left', 'right'] as const;
+const sides = ['top', 'bottom', 'left', 'right', 'start', 'end'] as const;
 const lengths = {
   0: 0,
   0.25: 1,
@@ -76,6 +76,8 @@ export type TopBottomLeftRightStyle = {
     bottom?: string | number;
     left?: string | number;
     right?: string | number;
+    start?: string | number;
+    end?: string | number;
   };
 };
 

@@ -14,6 +14,9 @@ export const alignContent = {
   'content-around': {
     alignContent: 'space-around',
   },
+  'content-evenly': {
+    alignContent: 'space-evenly',
+  },
   'content-stretch': {
     alignContent: 'stretch',
   },

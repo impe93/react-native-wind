@@ -1,5 +1,6 @@
 import { FlexStyle } from './styles/flex/flex-style';
 import { LayoutStyle } from './styles/layout/layout';
+import { AspectRatioStyle } from './styles/sizing/aspect-ratio';
 import { HeightStyle } from './styles/sizing/heights';
 import { MaxHeightStyle } from './styles/sizing/max-height';
 import { MaxWidthStyle } from './styles/sizing/max-width';
@@ -28,7 +29,8 @@ export type Styles =
   & FlexStyle
   & LayoutStyle
   & TypographyStyle
-  & ViewStyle;
+  & ViewStyle
+  & AspectRatioStyle;
 
 export type StyleValue = Valueof<Styles>;
 
