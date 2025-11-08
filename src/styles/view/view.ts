@@ -7,6 +7,8 @@ import {
 } from './border-radius';
 import { borderStyles } from './border-style';
 import { borderWidths } from './border-width';
+import { buildOverlayColorStyles } from './overlay-color';
+import { buildTintColorStyles } from './tint-color';
 
 export type ViewClaesses =
   | BorderRadiusClass
@@ -24,5 +26,7 @@ export const buildView = (): ViewStyle => {
     ...buildBorderColorStyles(),
     ...borderWidths,
     ...borderStyles,
+    ...buildTintColorStyles(),
+    ...buildOverlayColorStyles(),
   } as const;
 };

@@ -1,4 +1,7 @@
+import { backfaceVisibility, BackfaceVisibilityClass } from './backface-visibility';
 import { display, DisplayClass } from './display';
+import { objectFit, ObjectFitClass } from './object-fit';
+import { buildOpacity, OpacityClass, OpacityStyle } from './opacity';
 import { overflow, OverflowClass } from './overflow';
 import { position, PositionClass } from './position';
 import { resizeMode, ResizeModeClass } from './resize-mode';
@@ -15,14 +18,20 @@ export type LayoutClass =
   | PositionClass
   | TopBottomLeftRightClass
   | ZIndexClass
-  | DisplayClass;
+  | DisplayClass
+  | BackfaceVisibilityClass
+  | ObjectFitClass
+  | OpacityClass;
 
 export type LayoutStyle = typeof resizeMode &
   typeof overflow &
   typeof position &
   typeof zIndex &
   typeof display &
-  TopBottomLeftRightStyle;
+  typeof backfaceVisibility &
+  typeof objectFit &
+  TopBottomLeftRightStyle &
+  OpacityStyle;
 
 export const buildLayout = (): LayoutStyle => {
   return {
@@ -32,5 +41,8 @@ export const buildLayout = (): LayoutStyle => {
     ...zIndex,
     ...buildTopBottomLeftRight(),
     ...display,
+    ...backfaceVisibility,
+    ...objectFit,
+    ...buildOpacity(),
   } as const;
 };
