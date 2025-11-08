@@ -12,6 +12,7 @@ import { MarginStyles } from './styles/spacing/margins';
 import { PaddingStyles } from './styles/spacing/paddings';
 import { CustomSpaces } from './styles/spacing/spaces';
 import { CustomFontSizes } from './styles/typography/font-size';
+import { CustomFontFamilies } from './styles/typography/font-family';
 import { TypographyStyle } from './styles/typography/typography';
 import { ViewStyle } from './styles/view/view';
 
@@ -39,6 +40,7 @@ export type CustomConfig = {
     spacing?: CustomSpaces;
     sizing?: CustomSizes;
     colors?: Record<string, Record<string, string> | string>;
+    fontFamily?: CustomFontFamilies;
   };
-  fontSize?: CustomFontSizes
+  fontSize?: CustomFontSizes;
 };

@@ -12,6 +12,7 @@ import { buildMargins } from '../styles/spacing/margins';
 import { buildPaddings } from '../styles/spacing/paddings';
 import { mergeSpaces } from '../styles/spacing/spaces';
 import { mergeFontSizes } from '../styles/typography/font-size';
+import { mergeFontFamilies } from '../styles/typography/font-family';
 import { buildTypography } from '../styles/typography/typography';
 import { buildView } from '../styles/view/view';
 import { buildColors } from '../theme/colors';
@@ -21,6 +22,7 @@ export const composeStyles = (): void => {
   mergeSizes();
   mergeSpaces();
   mergeFontSizes();
+  mergeFontFamilies();
   buildColors();
 
   const styles = [
