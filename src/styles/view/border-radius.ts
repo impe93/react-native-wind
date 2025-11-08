@@ -9,7 +9,11 @@ type BorderRadiusReactNativeNames =
   | 'borderBottomEndRadius'
   | 'borderBottomLeftRadius'
   | 'borderBottomRightRadius'
-  | 'borderBottomStartRadius';
+  | 'borderBottomStartRadius'
+  | 'borderStartEndRadius'
+  | 'borderStartStartRadius'
+  | 'borderEndEndRadius'
+  | 'borderEndStartRadius';
 
 type BorderRadiusPositionPairType = {
   [key in typeof borderRadiusPositions[number]]: BorderRadiusReactNativeNames;
@@ -46,6 +50,10 @@ export const borderRadiusPositions = [
   '-bl',
   '-br',
   '-bs',
+  '-se',
+  '-ss',
+  '-ee',
+  '-es',
 ] as const;
 
 const borderRadiusPositionsPair: BorderRadiusPositionPairType = {
@@ -58,6 +66,10 @@ const borderRadiusPositionsPair: BorderRadiusPositionPairType = {
   '-tr': 'borderTopRightRadius',
   '-tl': 'borderTopLeftRadius',
   '-ts': 'borderTopStartRadius',
+  '-se': 'borderStartEndRadius',
+  '-ss': 'borderStartStartRadius',
+  '-ee': 'borderEndEndRadius',
+  '-es': 'borderEndStartRadius',
 } as const;
 
 export const buildBorderRadiusStyles = (): BorderRadiusStyles => {

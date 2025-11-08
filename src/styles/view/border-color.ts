@@ -7,7 +7,10 @@ type BorderColorReactNativeNames =
   | 'borderRightColor'
   | 'borderLeftColor'
   | 'borderTopColor'
-  | 'borderBottomColor';
+  | 'borderBottomColor'
+  | 'borderBlockColor'
+  | 'borderBlockEndColor'
+  | 'borderBlockStartColor';
 
 type BorderColorPositionPairType = {
   [key in typeof borderColorPositions[number]]: BorderColorReactNativeNames;
@@ -21,6 +24,9 @@ export const borderColorPositions = [
   '-r',
   '-t',
   '-b',
+  '-block',
+  '-block-e',
+  '-block-s',
 ] as const;
 
 const borderColorPositionsPair: BorderColorPositionPairType = {
@@ -31,6 +37,9 @@ const borderColorPositionsPair: BorderColorPositionPairType = {
   '-l': 'borderLeftColor',
   '-b': 'borderBottomColor',
   '-t': 'borderTopColor',
+  '-block': 'borderBlockColor',
+  '-block-e': 'borderBlockEndColor',
+  '-block-s': 'borderBlockStartColor',
 } as const;
 
 export type BorderColorStyles = {
@@ -41,7 +50,10 @@ export type BorderColorStyles = {
     | { borderLeftColor: string }
     | { borderRightColor: string }
     | { borderEndColor: string }
-    | { borderStartColor: string };
+    | { borderStartColor: string }
+    | { borderBlockColor: string }
+    | { borderBlockEndColor: string }
+    | { borderBlockStartColor: string };
 };
 
 export const buildBorderColorStyles = (): BorderColorStyles => {

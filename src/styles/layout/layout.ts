@@ -1,5 +1,6 @@
 import { backfaceVisibility, BackfaceVisibilityClass } from './backface-visibility';
 import { boxSizing, BoxSizingClass } from './box-sizing';
+import { cursor, CursorClass } from './cursor';
 import { direction, DirectionClass } from './direction';
 import { display, DisplayClass } from './display';
 import {
@@ -15,6 +16,7 @@ import { isolation, IsolationClass } from './isolation';
 import { objectFit, ObjectFitClass } from './object-fit';
 import { buildOpacity, OpacityClass, OpacityStyle } from './opacity';
 import { overflow, OverflowClass } from './overflow';
+import { pointerEvents, PointerEventsClass } from './pointer-events';
 import { position, PositionClass } from './position';
 import { resizeMode, ResizeModeClass } from './resize-mode';
 import {
@@ -39,7 +41,9 @@ export type LayoutClass =
   | ColumnGapClass
   | DirectionClass
   | IsolationClass
-  | BoxSizingClass;
+  | BoxSizingClass
+  | PointerEventsClass
+  | CursorClass;
 
 export type LayoutStyle = typeof resizeMode &
   typeof overflow &
@@ -53,7 +57,9 @@ export type LayoutStyle = typeof resizeMode &
   GapStyle &
   typeof direction &
   typeof isolation &
-  typeof boxSizing;
+  typeof boxSizing &
+  typeof pointerEvents &
+  typeof cursor;
 
 export const buildLayout = (): LayoutStyle => {
   return {
@@ -72,5 +78,7 @@ export const buildLayout = (): LayoutStyle => {
     ...direction,
     ...isolation,
     ...boxSizing,
+    ...pointerEvents,
+    ...cursor,
   } as const;
 };
