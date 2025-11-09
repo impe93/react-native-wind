@@ -315,4 +315,118 @@ describe('arbitraryParser', () => {
       expect(result).toEqual({ elevation: 5 });
     });
   });
+
+  describe('Platform-Specific Arbitrary Values', () => {
+    it('should parse ios-prefixed arbitrary margin', () => {
+      const result = parseArbitraryValue('ios:m-[15]');
+      expect(result).toEqual({ margin: 15 });
+    });
+
+    it('should parse android-prefixed arbitrary margin', () => {
+      const result = parseArbitraryValue('android:m-[15]');
+      expect(result).toEqual({ margin: 15 });
+    });
+
+    it('should parse ios-prefixed arbitrary height', () => {
+      const result = parseArbitraryValue('ios:h-[240]');
+      expect(result).toEqual({ height: 240 });
+    });
+
+    it('should parse android-prefixed arbitrary width', () => {
+      const result = parseArbitraryValue('android:w-[350]');
+      expect(result).toEqual({ width: 350 });
+    });
+
+    it('should parse platform-prefixed negative values', () => {
+      const result1 = parseArbitraryValue('ios:-mt-[10]');
+      expect(result1).toEqual({ marginTop: -10 });
+
+      const result2 = parseArbitraryValue('android:-ml-[5]');
+      expect(result2).toEqual({ marginLeft: -5 });
+    });
+
+    it('should parse platform-prefixed hex colors', () => {
+      const result1 = parseArbitraryValue('ios:bg-[#f1354a]');
+      expect(result1).toEqual({ backgroundColor: '#f1354a' });
+
+      const result2 = parseArbitraryValue('android:bg-[#ff0000]');
+      expect(result2).toEqual({ backgroundColor: '#ff0000' });
+    });
+
+    it('should parse platform-prefixed rgba colors', () => {
+      const result = parseArbitraryValue('ios:bg-[rgba(255,0,0,0.5)]');
+      expect(result).toEqual({ backgroundColor: 'rgba(255,0,0,0.5)' });
+    });
+
+    it('should parse platform-prefixed text colors', () => {
+      const result1 = parseArbitraryValue('ios:text-[#333]');
+      expect(result1).toEqual({ color: '#333' });
+
+      const result2 = parseArbitraryValue('android:text-[#666]');
+      expect(result2).toEqual({ color: '#666' });
+    });
+
+    it('should parse platform-prefixed font sizes', () => {
+      const result1 = parseArbitraryValue('ios:text-[19px]');
+      expect(result1).toEqual({ fontSize: 19 });
+
+      const result2 = parseArbitraryValue('android:text-[21px]');
+      expect(result2).toEqual({ fontSize: 21 });
+    });
+
+    it('should parse platform-prefixed percentages', () => {
+      const result1 = parseArbitraryValue('ios:w-[85%]');
+      expect(result1).toEqual({ width: '85%' });
+
+      const result2 = parseArbitraryValue('android:h-[50%]');
+      expect(result2).toEqual({ height: '50%' });
+    });
+
+    it('should parse platform-prefixed opacity', () => {
+      const result = parseArbitraryValue('ios:opacity-[0.73]');
+      expect(result).toEqual({ opacity: 0.73 });
+    });
+
+    it('should parse platform-prefixed z-index', () => {
+      const result = parseArbitraryValue('android:z-[999]');
+      expect(result).toEqual({ zIndex: 999 });
+    });
+
+    it('should parse platform-prefixed border radius', () => {
+      const result = parseArbitraryValue('ios:rounded-[12]');
+      expect(result).toEqual({ borderRadius: 12 });
+    });
+
+    it('should parse platform-prefixed border width', () => {
+      const result = parseArbitraryValue('android:border-[3]');
+      expect(result).toEqual({ borderWidth: 3 });
+    });
+
+    it('should parse platform-prefixed padding', () => {
+      const result1 = parseArbitraryValue('ios:p-[24]');
+      expect(result1).toEqual({ padding: 24 });
+
+      const result2 = parseArbitraryValue('android:pt-[12]');
+      expect(result2).toEqual({ paddingTop: 12 });
+    });
+
+    it('should parse platform-prefixed gaps', () => {
+      const result1 = parseArbitraryValue('ios:gap-[12]');
+      expect(result1).toEqual({ gap: 12 });
+
+      const result2 = parseArbitraryValue('android:gap-x-[8]');
+      expect(result2).toEqual({ columnGap: 8 });
+    });
+
+    it('should return null for invalid platform-prefixed arbitrary values', () => {
+      const result = parseArbitraryValue('ios:invalid-[10]');
+      expect(result).toBeNull();
+    });
+
+    it('should return null for malformed platform prefix', () => {
+      const result = parseArbitraryValue('web:m-[10]');
+      // web is not supported (only ios and android)
+      expect(result).toBeNull();
+    });
+  });
 });

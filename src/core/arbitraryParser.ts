@@ -156,6 +156,78 @@ const multiPropertyPrefixes: Record<string, string[]> = {
 };
 
 /**
+ * Set of properties that should treat unitless numbers as pixels
+ * Using a Set for O(1) lookup performance instead of array.includes() O(n)
+ */
+const pixelPropertiesSet = new Set([
+  'margin',
+  'marginTop',
+  'marginBottom',
+  'marginLeft',
+  'marginRight',
+  'marginHorizontal',
+  'marginVertical',
+  'marginStart',
+  'marginEnd',
+  'padding',
+  'paddingTop',
+  'paddingBottom',
+  'paddingLeft',
+  'paddingRight',
+  'paddingHorizontal',
+  'paddingVertical',
+  'paddingStart',
+  'paddingEnd',
+  'top',
+  'bottom',
+  'left',
+  'right',
+  'start',
+  'end',
+  'gap',
+  'rowGap',
+  'columnGap',
+  'width',
+  'height',
+  'minWidth',
+  'maxWidth',
+  'minHeight',
+  'maxHeight',
+  'fontSize',
+  'lineHeight',
+  'letterSpacing',
+  'borderRadius',
+  'borderTopLeftRadius',
+  'borderTopRightRadius',
+  'borderBottomLeftRadius',
+  'borderBottomRightRadius',
+  'borderStartRadius',
+  'borderEndRadius',
+  'borderStartStartRadius',
+  'borderStartEndRadius',
+  'borderEndStartRadius',
+  'borderEndEndRadius',
+  'borderLeftRadius',
+  'borderRightRadius',
+  'borderWidth',
+  'borderTopWidth',
+  'borderBottomWidth',
+  'borderLeftWidth',
+  'borderRightWidth',
+  'borderStartWidth',
+  'borderEndWidth',
+  'shadowRadius',
+  'shadowOffsetWidth',
+  'shadowOffsetHeight',
+  'textShadowRadius',
+  'textShadowOffsetWidth',
+  'textShadowOffsetHeight',
+  'outlineWidth',
+  'outlineOffset',
+  'elevation',
+]);
+
+/**
  * Parse a value string and convert it to the appropriate type
  * Supports: px, %, hex colors, rgb/rgba, and unitless numbers
  */
@@ -212,75 +284,8 @@ function parseValue(
   const num = parseFloat(trimmed);
   if (!isNaN(num)) {
     // For certain properties, treat unitless numbers as pixels
-    const pixelProperties = [
-      'margin',
-      'marginTop',
-      'marginBottom',
-      'marginLeft',
-      'marginRight',
-      'marginHorizontal',
-      'marginVertical',
-      'marginStart',
-      'marginEnd',
-      'padding',
-      'paddingTop',
-      'paddingBottom',
-      'paddingLeft',
-      'paddingRight',
-      'paddingHorizontal',
-      'paddingVertical',
-      'paddingStart',
-      'paddingEnd',
-      'top',
-      'bottom',
-      'left',
-      'right',
-      'start',
-      'end',
-      'gap',
-      'rowGap',
-      'columnGap',
-      'width',
-      'height',
-      'minWidth',
-      'maxWidth',
-      'minHeight',
-      'maxHeight',
-      'fontSize',
-      'lineHeight',
-      'letterSpacing',
-      'borderRadius',
-      'borderTopLeftRadius',
-      'borderTopRightRadius',
-      'borderBottomLeftRadius',
-      'borderBottomRightRadius',
-      'borderStartRadius',
-      'borderEndRadius',
-      'borderStartStartRadius',
-      'borderStartEndRadius',
-      'borderEndStartRadius',
-      'borderEndEndRadius',
-      'borderLeftRadius',
-      'borderRightRadius',
-      'borderWidth',
-      'borderTopWidth',
-      'borderBottomWidth',
-      'borderLeftWidth',
-      'borderRightWidth',
-      'borderStartWidth',
-      'borderEndWidth',
-      'shadowRadius',
-      'shadowOffsetWidth',
-      'shadowOffsetHeight',
-      'textShadowRadius',
-      'textShadowOffsetWidth',
-      'textShadowOffsetHeight',
-      'outlineWidth',
-      'outlineOffset',
-      'elevation',
-    ];
-
-    if (pixelProperties.includes(styleProperty)) {
+    // Use Set.has() for O(1) lookup instead of array.includes() O(n)
+    if (pixelPropertiesSet.has(styleProperty)) {
       return isNegative ? -num : num;
     }
 
@@ -295,15 +300,26 @@ function parseValue(
 /**
  * Parses an arbitrary value class name and returns the corresponding style object
  * Supports patterns like: h-[240], bg-[#f1354a], -mt-[10]
+ * Also supports platform-prefixed arbitrary values: ios:h-[240], android:bg-[#ff0000]
  *
- * @param className - The class name to parse (e.g., "h-[240]", "bg-[#ff0000]")
+ * @param className - The class name to parse (e.g., "h-[240]", "ios:bg-[#ff0000]")
  * @returns Style object if successfully parsed, null otherwise
  */
 export function parseArbitraryValue(className: string): StyleValue | null {
+  // Strip platform prefix if present (defensive - createStyle.ts should already do this)
+  // Examples: ios:h-[240] -> h-[240], android:bg-[#ff0000] -> bg-[#ff0000]
+  let baseClassName = className;
+  const platformPrefixRegex = /^(ios|android):(.+)$/;
+  const platformMatch = platformPrefixRegex.exec(className);
+
+  if (platformMatch) {
+    baseClassName = platformMatch[2]; // Extract class without platform prefix
+  }
+
   // Pattern: optional minus sign, prefix, opening bracket, value, closing bracket
   // Examples: h-[240], -mt-[10], bg-[#ff0000]
   const regex = /^(-)?([a-z-]+)-\[([^\]]+)\]$/;
-  const match = regex.exec(className);
+  const match = regex.exec(baseClassName);
 
   if (!match) {
     return null;
