@@ -6,3 +6,4 @@ coverage
 
 .eslintrc.js
 jest.config.ts
+babel.config.js

@@ -1,6 +1,7 @@
 import { StyleProp, StyleSheet } from 'react-native';
 import { mainStyles } from './mainStyles';
 import { StyleValue } from '../types';
+import { parseArbitraryValue } from './arbitraryParser';
 
 export const s = (
   classes: TemplateStringsArray,
@@ -13,6 +14,10 @@ export const s = (
     .replace(/\s+/g, ' ') // Remove extra spaces
     .trim()
     .split(' ')
-    .reduce<StyleValue[]>((pv, cv) => [...pv, mainStyles[cv]] as StyleValue[], []);
+    .reduce<StyleValue[]>((pv, cv) => {
+      // Try to parse as arbitrary value first, then fall back to mainStyles lookup
+      const styleValue = parseArbitraryValue(cv) || mainStyles[cv];
+      return styleValue ? [...pv, styleValue] as StyleValue[] : pv;
+    }, []);
   return StyleSheet.flatten(flattenClasses as any);
 };
