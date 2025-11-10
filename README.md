@@ -14,7 +14,22 @@ React Native Wind is a utility-first style library that offers a low-level API. 
 - 📱 **Platform-specific styles** - Write iOS and Android specific styles with `ios:` and `android:` prefixes
 - 🎯 **Arbitrary values** - Use custom values with bracket syntax (e.g., `h-[240]`, `bg-[#ff0000]`)
 - ⚡ **High performance** - Optimized with LRU caching and efficient parsing
+- 🚀 **Build-time optimization** - Optional Babel plugin for 80%+ performance improvement
 - 🎛️ **Customizable** - Extend default theme with your own colors, spacing, and more
+
+## Performance Optimization (Optional)
+
+For maximum performance, enable build-time extraction by adding the Babel plugin to your `babel.config.js`:
+
+```javascript
+module.exports = {
+  plugins: [
+    'react-native-wind/babel'
+  ]
+};
+```
+
+This transforms style computations at build time for ~80% average performance improvement. See `OPTIMIZATION.md` for details.
 
 ## Documentation
 

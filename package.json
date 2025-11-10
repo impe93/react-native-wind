@@ -12,6 +12,20 @@
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./babel": {
+      "require": "./dist/babel-plugin/index.js",
+      "types": "./dist/babel-plugin/index.d.ts"
+    },
+    "./runtime": {
+      "require": "./dist/runtime.js",
+      "types": "./dist/runtime.d.ts"
+    }
+  },
   "repository": "https://github.com/impe93/react-native-wind",
   "author": "Lorenzo Imperatrice",
   "license": "mit",
@@ -27,14 +41,20 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@babel/helper-plugin-utils": "^7.24.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-typescript": "^7.28.5",
+    "@babel/template": "^7.24.0",
+    "@babel/types": "^7.24.0",
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__template": "^7.4.4",
     "@types/jest": "^27.0.1",
     "@types/lodash": "^4.14.172",
     "@types/react-native": "^0.64.13",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
     "babel-jest": "^27.0.6",
+    "babel-plugin-tester": "^11.0.4",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^24.4.0",
